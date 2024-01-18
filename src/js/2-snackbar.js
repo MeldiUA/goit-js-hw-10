@@ -5,16 +5,13 @@ const userDelayHTML = document.querySelector("input[name=delay]");
 
 const btnSubmit = document.querySelector("button[type=submit]");
 
-const radioBtnFulfilled = document.querySelector("input[value=fulfilled]");
-
 const form = document.querySelector(".form");
+
 
 btnSubmit.addEventListener("click", (event) =>{
     event.preventDefault();
-    const userDelay = userDelayHTML.value;
-    const checkRadioBtn = radioBtnFulfilled.checked;
-
-    form.reset();
+    const userDelay = Number(userDelayHTML.value);
+    const checkRadioBtn = form.state.value === "fulfilled";
 
     new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -36,4 +33,5 @@ btnSubmit.addEventListener("click", (event) =>{
             message: rej});
     })
     .catch((e) => {console.log(e);console.log("In catch");});
+    form.reset();
 });

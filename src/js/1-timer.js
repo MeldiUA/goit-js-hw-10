@@ -66,10 +66,10 @@ function convertMs(ms) {
   startBtn.addEventListener("click", () => {
     startBtn.disabled = true;
     inputDate.disabled = true;
-   setInterval(() => {
-    const different = userSelectedDate - new Date();
+   const intervalTimer = setInterval(() => {
+    const different = userSelectedDate - Date.now();
     if(different <= 0) {
-        window.clearInterval();
+        clearInterval(intervalTimer);
         return;
     }
     const result = convertMs(different);

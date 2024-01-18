@@ -1,3 +1,5 @@
+@import url(./reset.css);
+
 input[name='delay'] {
   display: block;
   margin-top: 8px;

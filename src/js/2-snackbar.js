@@ -26,12 +26,10 @@ btnSubmit.addEventListener("click", (event) =>{
     .then(value => {
         izitoast.success({
             position: 'topRight',
-            message: value});
-    }, rej => {
-        izitoast.error({
-            position: 'topRight',
-            message: rej});
-    })
-    .catch((e) => {console.log(e);console.log("In catch");});
+            message: value})
+        })
+    .catch((e) => {izitoast.error({
+                position: 'topRight',
+                message: e});});
     form.reset();
 });
